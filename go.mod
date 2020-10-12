@@ -7,9 +7,10 @@ require (
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/gorilla/mux v1.8.0
+	github.com/joho/godotenv v1.3.0
 	github.com/spf13/cobra v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/spf13/viper v1.7.1 // indirect
+	github.com/spf13/viper v1.7.1
 	github.com/tidwall/gjson v1.6.1 // indirect
 	golang.org/x/net v0.0.0-20201010224723-4f7140c49acb // indirect
 	golang.org/x/oauth2 v0.0.0-20200902213428-5d25da1a8d43 // indirect
