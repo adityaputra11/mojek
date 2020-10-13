@@ -5,8 +5,12 @@ import (
 	"log"
 	"strings"
 
+	v1 "github.com/adityaputra11/mojek/internal/api/v1"
 	"github.com/adityaputra11/mojek/internal/config"
 	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 	"github.com/spf13/cobra"
 )
 
@@ -50,17 +54,13 @@ func initConfig() {
 func startServer(cmd *cobra.Command, agrs []string) {
 	fmt.Println("Start http-server")
 	fmt.Println(config.Viper().GetString("database.url"))
-	// dsn := config.Viper().GetString("database.url")
-	// db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	// if err != nil {
-	// 	panic(err.Error())
-	// }
-	// defer fmt.Println(db)
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "test",
-		})
-	})
-	r.Run(":" + config.Get("port"))
+	db, err := gorm.Open(config.Get("database.type"), config.Get("database.url"))
+	if err != nil {
+		panic(fmt.Errorf("Failed to connect database: %w", err))
+	}
+	defer db.Close()
+	router := gin.Default()
+	apiV1Router := router.Group("/api/v1")
+	v1.RegisterRouterAPIV1(apiV1Router, db)
+	router.Run(":" + config.Get("port"))
 }
