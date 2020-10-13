@@ -1,18 +1,22 @@
-module github.com/aditya1102/rest-go
+module github.com/adityaputra11/mojek
 
 go 1.15
 
 require (
-	github.com/go-oauth2/oauth2/v4 v4.1.2
-	github.com/go-sql-driver/mysql v1.5.0
-	github.com/google/uuid v1.1.2 // indirect
-	github.com/gorilla/mux v1.8.0
-	github.com/joho/godotenv v1.3.0
-	github.com/spf13/cobra v1.0.0 // indirect
+	github.com/gin-gonic/gin v1.6.3
+	github.com/go-playground/validator/v10 v10.4.0 // indirect
+	github.com/golang/protobuf v1.4.2 // indirect
+	github.com/json-iterator/go v1.1.10 // indirect
+	github.com/mattn/go-sqlite3 v1.14.4
+	github.com/spf13/cobra v1.0.0
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.7.1
-	github.com/tidwall/gjson v1.6.1 // indirect
-	golang.org/x/net v0.0.0-20201010224723-4f7140c49acb // indirect
-	golang.org/x/oauth2 v0.0.0-20200902213428-5d25da1a8d43 // indirect
-	gorm.io/gorm v1.20.2 // indirect
+	github.com/ugorji/go v1.1.11 // indirect
+	golang.org/x/crypto v0.0.0-20201012173705-84dcc777aaee // indirect
+	golang.org/x/sys v0.0.0-20201013081832-0aaa2718063a // indirect
+	google.golang.org/protobuf v1.25.0 // indirect
+	gopkg.in/yaml.v2 v2.3.0 // indirect
+	gorm.io/driver/postgres v1.0.2
+	gorm.io/driver/sqlite v1.1.3
+	gorm.io/gorm v1.20.2
 )

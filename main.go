@@ -2,26 +2,16 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"os"
 
-	"github.com/spf13/viper"
+	"github.com/adityaputra11/mojek/cmd"
 )
 
-func getEnvViperVariable(key string) string {
-	viper.SetConfigFile(".env")
-	err := viper.ReadInConfig()
-	if err != nil {
-		log.Fatalf("Error while reading config file %s", err)
-	}
-	value, ok := viper.Get(key).(string)
-	if !ok {
-		log.Fatalf("Invalid type asseration")
-	}
-	return value
+func init() {
+	fmt.Println("Init")
 }
-
 func main() {
-	viperValue := getEnvViperVariable("BASEURL")
-	fmt.Println("Hello World")
-	fmt.Println(viperValue)
+	if err := cmd.Execute(); err != nil {
+		os.Exit(1)
+	}
 }

@@ -15,4 +15,4 @@
 # vendor/
 
 #Hiding Environment
-*.env
+*.yaml
