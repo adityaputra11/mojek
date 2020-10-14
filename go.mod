@@ -9,6 +9,7 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/mattn/go-sqlite3 v1.14.4
+	github.com/satori/go.uuid v1.2.0
 	github.com/sirupsen/logrus v1.7.0
 	github.com/spf13/cobra v1.0.0
 	github.com/spf13/pflag v1.0.5 // indirect

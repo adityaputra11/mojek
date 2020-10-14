@@ -5,9 +5,8 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-func testHelloWorld() {
-}
-
 func RegisterRouterAPIV1(router *gin.RouterGroup, db *gorm.DB) {
-	router.GET("/users", GetUser)
+	userAPI := NewUserAPI(db)
+	router.GET("/users", userAPI.GetAllUser)
+	router.GET("/users/:name", userAPI.GetUser)
 }
