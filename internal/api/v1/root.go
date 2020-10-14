@@ -9,4 +9,5 @@ func RegisterRouterAPIV1(router *gin.RouterGroup, db *gorm.DB) {
 	userAPI := NewUserAPI(db)
 	router.GET("/users", userAPI.GetAllUser)
 	router.GET("/users/:name", userAPI.GetUser)
+	router.POST("/addUser", userAPI.CreateUser)
 }

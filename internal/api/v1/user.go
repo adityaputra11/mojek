@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"encoding/json"
 	"net/http"
 	"os"
 	"reflect"
@@ -17,6 +18,7 @@ var log = logrus.New()
 type UserAPI interface {
 	GetAllUser(c *gin.Context)
 	GetUser(c *gin.Context)
+	CreateUser(c *gin.Context)
 }
 
 type userAPI struct {
@@ -46,4 +48,16 @@ func (p userAPI) GetUser(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, user)
+}
+
+// CreateUser return only one User
+func (p userAPI) CreateUser(c *gin.Context) {
+	user := p.userService.InitUser()
+	err := json.NewDecoder(c.Request.Body).Decode(&user)
+	createUser := p.userService.CreateUser(user)
+	if err != nil {
+		c.Status(http.StatusNotFound)
+		return
+	}
+	c.JSON(http.StatusOK, createUser)
 }

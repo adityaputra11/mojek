@@ -1,8 +1,8 @@
 package models
 
-import "time"
-
 type Model struct {
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	CreateAt   string `json:"create_at,oempty"`
+	ModifiedAt string `json:"modified_at,oempty"`
+	CreateBy   string `json:"create_by,oempty"`
+	ModifiedBy string `json:"modified_by,oempty"`
 }
